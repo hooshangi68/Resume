@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>رزومه دانیال هوشنگی</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+:root{
+--blue:#0B5CFF;
+--orange:#FF8C00;
+--dark:#16213E;
+--light:#F7F9FC;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Vazirmatn;
+}
+
+body{
+background:var(--light);
+overflow-x:hidden;
+}
+
+.container{
+width:90%;
+max-width:1300px;
+margin:auto;
+}
+
+section{
+padding:90px 0;
+}
+
+h2{
+font-size:38px;
+color:var(--dark);
+margin-bottom:20px;
+text-align:center;
+}
+
+p{
+line-height:2;
+color:#666;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+background:white;
+}
+
+.hero-content{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+
+.hero-text h1{
+font-size:60px;
+color:var(--dark);
+line-height:1.4;
+}
+
+.hero-text span{
+color:var(--blue);
+}
+
+.hero-text p{
+margin:25px 0;
+font-size:18px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+background:var(--blue);
+color:white;
+text-decoration:none;
+border-radius:12px;
+transition:.4s;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+}
+
+.hero-img{
+position:relative;
+}
+
+.hero-img img{
+width:100%;
+border-radius:30px;
+box-shadow:0 20px 50px rgba(0,0,0,.15);
+}
+
+.circle{
+position:absolute;
+width:180px;
+height:180px;
+border:15px solid var(--orange);
+border-radius:50%;
+left:-50px;
+top:50%;
+opacity:.2;
+}
+
+/* FEATURES */
+
+.features{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+}
+
+.feature{
+background:white;
+padding:30px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+transition:.4s;
+}
+
+.feature:hover{
+transform:translateY(-10px);
+}
+
+.feature i{
+font-size:40px;
+color:var(--blue);
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.stat{
+background:linear-gradient(135deg,var(--blue),#3f85ff);
+color:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+}
+
+.stat h3{
+font-size:45px;
+}
+
+/* PRODUCTS */
+
+.products-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.product{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,.07);
+transition:.4s;
+}
+
+.product:hover{
+transform:translateY(-10px);
+}
+
+.product img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.product-content{
+padding:25px;
+}
+
+/* TIMELINE */
+
+.timeline{
+max-width:900px;
+margin:auto;
+}
+
+.timeline-item{
+background:white;
+padding:30px;
+margin-bottom:25px;
+border-right:5px solid var(--blue);
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+}
+
+/* SKILLS */
+
+.skill{
+margin-bottom:25px;
+}
+
+.skill-title{
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
+}
+
+.bar{
+height:12px;
+background:#ddd;
+border-radius:50px;
+overflow:hidden;
+}
+
+.fill{
+height:100%;
+background:linear-gradient(to left,var(--orange),var(--blue));
+}
+
+/* CONTACT */
+
+.contact-box{
+background:white;
+padding:50px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 10px 40px rgba(0,0,0,.08);
+}
+
+footer{
+background:var(--dark);
+color:white;
+text-align:center;
+padding:25px;
+}
+
+@media(max-width:900px){
+
+.hero-content,
+.features,
+.stats,
+.products-grid{
+grid-template-columns:1fr;
+}
+
+.hero-text h1{
+font-size:40px;
+}
+
+}
+
+
+
+/* ==========================
+   REVEAL ANIMATION
+========================== */
+
+.reveal{
+    opacity:0;
+    transform:translateY(80px);
+    transition:all 1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.reveal-left{
+    opacity:0;
+    transform:translateX(-100px);
+    transition:all 1s ease;
+}
+
+.reveal-left.active{
+    opacity:1;
+    transform:translateX(0);
+}
+
+.reveal-right{
+    opacity:0;
+    transform:translateX(100px);
+    transition:all 1s ease;
+}
+
+.reveal-right.active{
+    opacity:1;
+    transform:translateX(0);
+}
+
+.reveal-zoom{
+    opacity:0;
+    transform:scale(.8);
+    transition:all 1s ease;
+}
+
+.reveal-zoom.active{
+    opacity:1;
+    transform:scale(1);
+}
+
+/* تاخیر */
+
+.delay-1{
+    transition-delay:.2s;
+}
+
+.delay-2{
+    transition-delay:.4s;
+}
+
+.delay-3{
+    transition-delay:.6s;
+}
+
+.delay-4{
+    transition-delay:.8s;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<section class="hero reveal">
+
+<div class="container">
+
+<div class="hero-content">
+
+<div class="hero-text">
+
+<h1>
+دانیال هوشنگی
+<br>
+<span>نماینده علمی و فروش</span>
+</h1>
+
+<p>
+نماینده علمی و فروش شرکت اویدرم با تجربه در معرفی علمی محصولات پوستی،
+توسعه بازار، افزایش فروش و همکاری با پزشکان متخصص پوست و داروخانه‌ها.
+</p>
+
+<a href="https://uploadkon.ir/uploads/ea6517_26Resume-1403.pdf" class="btn">دانلود رزومه</a>
+
+</div>
+
+<div class="hero-img">
+
+<img src="https://uploadkon.ir/uploads/6f6a17_26file-00000000c67c7246a194564b1cc3382c.png">
+
+<div class=""></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section>
+
+<div class="container">
+
+
+
+<div class="features">
+
+<div class="feature reveal-left delay-1">
+<h3>فروش تخصصی</h3>
+<p>توسعه فروش و افزایش سهم بازار</p>
+</div>
+
+<div class="feature reveal-left delay-2">
+<h3>ارتباط با پزشکان</h3>
+<p>همکاری مستمر با متخصصین پوست</p>
+</div>
+
+<div class="feature reveal-left delay-3">
+<h3>تحلیل بازار</h3>
+<p>شناسایی فرصت‌های رشد</p>
+</div>
+
+<div class="feature reveal-left delay-4">
+<h3>آموزش علمی</h3>
+<p>معرفی علمی محصولات پوستی</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<section>
+
+<div class="container">
+
+<h2>دستاوردها</h2>
+
+<div class="stats">
+
+<div class="stat reveal delay-1">
+<h3>30%</h3>
+<p>رشد فروش سالانه</p>
+</div>
+
+<div class="stat reveal delay-2">
+<h3>500+</h3>
+<p>ویزیت موفق</p>
+</div>
+
+<div class="stat reveal delay-3">
+<h3>200+</h3>
+<p>داروخانه فعال</p>
+</div>
+
+<div class="stat reveal delay-4">
+<h3>2+</h3>
+<p>سال همکاری با اویدرم</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section>
+
+<div class="container">
+
+<h2>محصولات تخصصی</h2>
+
+<div class="products-grid">
+
+<div class="product reveal-zoom delay-1">
+
+<img src="https://images.unsplash.com/photo-1612817288484-6f916006741a">
+
+<div class="product-content">
+<h3>ضد آفتاب‌های اویدرم</h3>
+<p>پوست خشک، چرب، آکنه‌ای و رنگی</p>
+</div>
+
+</div>
+
+<div class="product reveal-zoom delay-2">
+
+<img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b">
+
+<div class="product-content">
+<h3>مرطوب کننده‌ها</h3>
+<p>پوست خشک، مختلط و چرب</p>
+</div>
+
+</div>
+
+<div class="product reveal-zoom delay-3">
+
+<img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883">
+
+<div class="product-content">
+<h3>Evisensitive</h3>
+<p>لاین ترمیم کننده و پوست حساس</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section>
+
+<div class="container">
+
+<h2>سوابق شغلی</h2>
+
+<div class="timeline">
+
+<div class="timeline-item reveal-left">
+
+<h3>اویدرم | 1402 تاکنون</h3>
+
+<p>
+توسعه استراتژی‌های فروش،
+معرفی علمی محصولات،
+تحلیل بازار،
+افزایش 30 درصدی فروش سالانه
+و همکاری مستمر با پزشکان و داروخانه‌ها.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section>
+
+<div class="container">
+
+<h2>مهارت‌ها</h2>
+
+<div class="skill">
+<div class="skill-title">
+<span>فروش حرفه‌ای</span>
+<span>95%</span>
+</div>
+<div class="bar">
+<div class="fill" style="width:95%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-title">
+<span>مذاکره</span>
+<span>92%</span>
+</div>
+<div class="bar">
+<div class="fill" style="width:92%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-title">
+<span>تحلیل بازار</span>
+<span>88%</span>
+</div>
+<div class="bar">
+<div class="fill" style="width:88%"></div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section>
+
+<div class="container">
+
+<div class="contact-box reveal">
+<h2>تماس با من</h2>
+
+<p>
+<i class="fas fa-phone"></i>
+09053378282
+</p>
+
+<p>
+<i class="fas fa-envelope"></i>
+hooshangi68@gmail.com
+</p>
+
+<p>
+<i class="fas fa-location-dot"></i>
+مشهد
+</p>
+
+<br>
+
+<div class="social-buttons">
+
+<a href="https://wa.me/989053378282"
+   target="_blank"
+   class="btn whatsapp">
+   <i class="fab fa-whatsapp"></i>
+   واتساپ
+</a>
+
+<a href="https://t.me/perfect1989"
+   target="_blank"
+   class="btn telegram">
+   <i class="fab fa-telegram"></i>
+   تلگرام
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+دانیال هوشنگی | نماینده علمی و فروش اویدرم
+
+</footer>
+
+<script>
+
+function reveal(){
+
+let reveals = document.querySelectorAll(
+'.reveal,.reveal-left,.reveal-right,.reveal-zoom'
+);
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight = window.innerHeight;
+let revealTop = reveals[i].getBoundingClientRect().top;
+let revealPoint = 120;
+
+if(revealTop < windowHeight - revealPoint){
+
+reveals[i].classList.add('active');
+
+}
+
+}
+
+}
+
+window.addEventListener('scroll', reveal);
+window.addEventListener('load', reveal);
+
+</script>
+
+</body>
+</html>
